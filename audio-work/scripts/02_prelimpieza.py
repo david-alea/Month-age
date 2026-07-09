@@ -20,14 +20,14 @@ import matplotlib.pyplot as plt
 
 BASE = "/home/user/Month-age/audio-work"
 y, sr = sf.read(f"{BASE}/00_input/original_48k.wav")
-trans = pd.read_csv(f"{BASE}/01_diagnostico/transitorios_v1.csv")
+trans = pd.read_csv(f"{BASE}/01_diagnostico/transitorios_v2.csv")
 
 # --- High-pass 120 Hz ---
 sos = butter(4, 120, btype="highpass", fs=sr, output="sos")
 y_hp = sosfiltfilt(sos, y)
 
 # --- Selección de impulsos a atenuar ---
-cand = trans[(trans["clase"] == "impulso_aislado") &
+cand = trans[(trans["clase"] == "impulso_aislado") & (trans["fuerte_p75"]) &
              ((~trans["en_habla_vad030"]) | (trans["satura"]))].copy()
 print(f"Impulsos candidatos a atenuar: {len(cand)} de {len(trans)} transitorios")
 
