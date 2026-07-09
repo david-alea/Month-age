@@ -1,0 +1,19 @@
+# Entorno virtual y caches de modelos
+venv/
+venv-*/
+__pycache__/
+.cache/
+
+# Audio y derivados: material personal, se entrega directamente al usuario
+00_input/
+01_diagnostico/
+02_prelimpieza/
+03_enhancement/
+04_dereverb/
+05_ganancia/
+06_separacion/
+07_transcripcion/
+08_iteraciones/
+*.wav
+*.m4a
+*.flac
