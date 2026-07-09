@@ -12,7 +12,9 @@ from df.io import load_audio, save_audio
 BASE = "/home/user/Month-age/audio-work"
 IN = f"{BASE}/02_prelimpieza/prelimpio_v1.wav"
 
-model, df_state, _ = init_df()
+# Modelo descargado manualmente desde raw.githubusercontent.com (el proxy
+# bloquea github.com para descargas directas).
+model, df_state, _ = init_df(model_base_dir=f"{BASE}/models/DeepFilterNet3/DeepFilterNet3")
 sr = df_state.sr()
 audio, _ = load_audio(IN, sr)
 print(f"audio: {audio.shape}, sr={sr}")
