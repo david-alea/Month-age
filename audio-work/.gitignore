@@ -1,5 +1,6 @@
 # Entorno virtual y caches de modelos
 venv/
+models/
 venv-*/
 __pycache__/
 .cache/
